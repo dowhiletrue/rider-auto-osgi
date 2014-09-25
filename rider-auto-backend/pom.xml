@@ -88,6 +88,10 @@
   </dependencies>
 
   <build>    
+  			<plugin>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-maven-plugin</artifactId>
+			</plugin>
     <plugins>      
       <!-- generate OSGi bundle -->
       <plugin>

@@ -37,7 +37,13 @@
 		<fabric.version>1.0.0.redhat-379</fabric.version>
 		<slf4j-api-version>1.6.6</slf4j-api-version>
 	</properties>
-
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j-api-version}</version>
+		</dependency>
+	</dependencies>
 	<dependencyManagement>
 		<dependencies>
 			<!-- Core Camel support -->
