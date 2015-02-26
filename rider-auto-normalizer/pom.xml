@@ -98,11 +98,12 @@
 	</dependencies>
 
 	<build>
-		<plugin>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-maven-plugin</artifactId>
-		</plugin>
+
 		<plugins>
+			<plugin>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-maven-plugin</artifactId>
+			</plugin>
 			<!-- generate OSGi bundle -->
 			<plugin>
 				<groupId>org.apache.felix</groupId>
