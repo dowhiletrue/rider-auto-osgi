@@ -28,7 +28,7 @@
 		<module>rider-auto-ws</module>
 		<module>rider-auto-normalizer</module>
 		<module>rider-auto-backend</module>
-	</modules>
+    </modules>
 
 	<properties>
 		<activemq-version>5.9.0.redhat-610379</activemq-version>
@@ -36,6 +36,12 @@
 		<cxf-version>2.7.0.redhat-610379</cxf-version>
 		<fabric.version>1.0.0.redhat-379</fabric.version>
 		<slf4j-api-version>1.6.6</slf4j-api-version>
+        <org.osgi.core.version>5.0.0</org.osgi.core.version>
+        <org.osgi.compendium.version>5.0.0</org.osgi.compendium.version>
+        <pax.exam.version>3.6.0</pax.exam.version>
+        <geronimo.atinject-spec.version>1.0</geronimo.atinject-spec.version>
+        <karaf.version>2.3.0.redhat-610379</karaf.version>
+        <paxurl.version>2.0.0</paxurl.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -154,6 +160,11 @@
 				<artifactId>activemq-broker</artifactId>
 				<version>${activemq-version}</version>
 			</dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-kahadb-store</artifactId>
+                <version>${activemq-version}</version>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -216,4 +227,12 @@
 		</pluginRepository>
 	</pluginRepositories>
 
+    <profiles>
+        <profile>
+            <id>itest</id>
+            <modules>
+                <module>itests</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>
