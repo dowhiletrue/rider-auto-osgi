@@ -7,4 +7,4 @@ The module demonstrates a couple of ways to bootstrap and run tests:
 * using the _server_ mode attached to the maven lifecycle using the [pax-exam maven plugin](https://ops4j1.jira.com/wiki/display/PAXEXAM3/Exam+Maven+Plugin)
 * how to bootstrap external resources (eg, activemq broker) before tests commence
 
-I've also put together a blog that takes you step by step through this: [Blog forthcoming]()
+I've also put together a blog that takes you step by step through this: [http://blog.christianposta.com/integration-testing-jboss-fuse-6-x-with-pax-exam-part-i/](http://blog.christianposta.com/integration-testing-jboss-fuse-6-x-with-pax-exam-part-i/)
