@@ -26,6 +26,13 @@
 	<name>Rider Auto OSGi Example :: Normalizer</name>
 	<url>http://fusesource.com</url>
 
+    <properties>
+        <fabric8.profile>rider.auto.osgi-normalizer</fabric8.profile>
+        <fabric8.parentProfiles>feature-camel-jms</fabric8.parentProfiles>
+        <fabric8.features>activemq-camel camel-bindy camel-jaxb camel-spring</fabric8.features>
+        <fabric8.bundles>mvn:org.fusesource.examples/rider-auto-common/${project.version}</fabric8.bundles>
+    </properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.fusesource.examples</groupId>
@@ -116,6 +123,10 @@
 					</instructions>
 				</configuration>
 			</plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric8-maven-plugin</artifactId>
+            </plugin>
 		</plugins>
 	</build>
 
