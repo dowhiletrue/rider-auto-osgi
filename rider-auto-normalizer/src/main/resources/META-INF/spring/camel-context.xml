@@ -20,16 +20,16 @@
 				<when>
 					<simple>${header.CamelFileName} regex '^.*xml$'</simple>
 					<unmarshal>
-						<jaxb contextPath="org.fusesource.camel.model" />
+						<jaxb contextPath="org.jboss.fuse.camel.model" />
 					</unmarshal>
 					<to uri="activemq:orders" />
 				</when>
 				<when>
 					<simple>${header.CamelFileName} regex '^.*(csv|csl)$'</simple>
 					<unmarshal>
-						<bindy type="Csv" packages="org.fusesource.camel.model" />
+						<bindy type="Csv" packages="org.jboss.fuse.camel.model" />
 					</unmarshal>
-					<convertBodyTo type="org.fusesource.camel.model.Order" />
+					<convertBodyTo type="org.jboss.fuse.camel.model.Order" />
 					<to uri="activemq:orders" />
 				</when>
 			</choice>

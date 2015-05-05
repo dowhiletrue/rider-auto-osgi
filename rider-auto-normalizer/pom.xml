@@ -15,27 +15,27 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.fusesource.examples</groupId>
+		<groupId>org.jboss.fuse.examples</groupId>
 		<artifactId>rider-auto-osgi</artifactId>
-		<version>4.0-SNAPSHOT</version>
+		<version>5.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>rider-auto-normalizer</artifactId>
 	<packaging>bundle</packaging>
 
 	<name>Rider Auto OSGi Example :: Normalizer</name>
-	<url>http://fusesource.com</url>
+	<url>http://jboss.org/products/fuse/overview/</url>
 
     <properties>
         <fabric8.profile>rider.auto.osgi-normalizer</fabric8.profile>
         <fabric8.parentProfiles>feature-camel-jms</fabric8.parentProfiles>
         <fabric8.features>activemq-camel camel-bindy camel-jaxb camel-spring</fabric8.features>
-        <fabric8.bundles>mvn:org.fusesource.examples/rider-auto-common/${project.version}</fabric8.bundles>
+        <fabric8.bundles>mvn:org.jboss.fuse.examples/rider-auto-common/${project.version}</fabric8.bundles>
     </properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.fusesource.examples</groupId>
+			<groupId>org.jboss.fuse.examples</groupId>
 			<artifactId>rider-auto-common</artifactId>
 		</dependency>
 
@@ -118,8 +118,8 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Import-Package>org.fusesource.camel.model, *</Import-Package>
-						<Export-Package>!org.fusesource.camel.util</Export-Package>
+						<Import-Package>org.jboss.fuse.camel.model, *</Import-Package>
+						<Export-Package>!org.jboss.fuse.camel.util</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>

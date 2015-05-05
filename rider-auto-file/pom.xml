@@ -15,16 +15,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.fusesource.examples</groupId>
+		<groupId>org.jboss.fuse.examples</groupId>
 		<artifactId>rider-auto-osgi</artifactId>
-		<version>4.0-SNAPSHOT</version>
+		<version>5.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>rider-auto-file</artifactId>
 	<packaging>bundle</packaging>
 
 	<name>Rider Auto OSGi Example :: File Poller</name>
-	<url>http://fusesource.com</url>
+	<url>http://jboss.org/products/fuse/overview/</url>
 
     <properties>
         <fabric8.profile>rider.auto.osgi-file</fabric8.profile>

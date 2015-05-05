@@ -15,7 +15,7 @@
 
   <cxf:cxfEndpoint id="orderEndpoint"
                    address="http://localhost:8182/cxf/order"
-                   serviceClass="org.fusesource.camel.ws.OrderEndpoint"/>
+                   serviceClass="org.jboss.fuse.camel.ws.OrderEndpoint"/>
   
   <camelContext id="rider-auto-ws" trace="true" xmlns="http://camel.apache.org/schema/spring">
     <route id="ws-to-jms">

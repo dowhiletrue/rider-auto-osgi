@@ -15,27 +15,27 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.fusesource.examples</groupId>
+		<groupId>org.jboss.fuse.examples</groupId>
 		<artifactId>rider-auto-osgi</artifactId>
-		<version>4.0-SNAPSHOT</version>
+		<version>5.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>rider-auto-ws</artifactId>
 	<packaging>bundle</packaging>
 
 	<name>Rider Auto OSGi Example :: Web Service</name>
-	<url>http://fusesource.com</url>
+	<url>http://jboss.org/products/fuse/overview/</url>
 
     <properties>
         <fabric8.profile>rider.auto.osgi-ws</fabric8.profile>
         <fabric8.parentProfiles>feature-camel-jms feature-cxf</fabric8.parentProfiles>
         <fabric8.features>activemq-camel camel-cxf camel-spring</fabric8.features>
-        <fabric8.bundles>mvn:org.fusesource.examples/rider-auto-common/${project.version}</fabric8.bundles>
+        <fabric8.bundles>mvn:org.jboss.fuse.examples/rider-auto-common/${project.version}</fabric8.bundles>
     </properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.fusesource.examples</groupId>
+			<groupId>org.jboss.fuse.examples</groupId>
 			<artifactId>rider-auto-common</artifactId>
 		</dependency>
 
