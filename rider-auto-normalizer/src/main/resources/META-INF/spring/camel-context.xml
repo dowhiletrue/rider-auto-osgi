@@ -32,6 +32,9 @@
 					<convertBodyTo type="org.jboss.fuse.camel.model.Order" />
 					<to uri="activemq:orders" />
 				</when>
+                <otherwise>
+                    <to uri="activemq:orders" />
+                </otherwise>
 			</choice>
 			<onException>
 				<exception>java.lang.Exception</exception>
