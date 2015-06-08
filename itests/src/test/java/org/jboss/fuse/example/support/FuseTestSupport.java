@@ -93,7 +93,7 @@ public class FuseTestSupport {
                 editConfigurationFilePut("etc/users.properties", "admin", "admin,admin"),
 
                 // this is the key... we can install features, bundles, etc. using these pax-exam options
-                features(maven().groupId("org.fusesource.examples").artifactId("rider-auto-common").versionAsInProject().classifier("features").type("xml"),
+                features(maven().groupId("org.jboss.fuse.examples").artifactId("rider-auto-common").versionAsInProject().classifier("features").type("xml"),
                         "rider-auto-osgi"),
                 logLevel(LogLevelOption.LogLevel.INFO),
 
