@@ -42,7 +42,7 @@ import static org.junit.Assert.assertTrue;
 public class BootstrapIT extends FuseTestSupport {
 
     @Inject
-    @Filter("(camel.context.name=rider-auto-backend)")
+    @Filter("(camel.context.name=ch.unibe.id.esb-parispolyrightks)")
     protected CamelContext camelContext;
 
     @Test

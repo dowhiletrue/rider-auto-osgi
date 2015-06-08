@@ -22,11 +22,13 @@ import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.TestProbeBuilder;
 import org.ops4j.pax.exam.junit.ProbeBuilder;
+import org.ops4j.pax.exam.karaf.options.KarafDistributionOption;
 import org.ops4j.pax.exam.karaf.options.LogLevelOption;
 import org.osgi.framework.*;
 import org.osgi.util.tracker.ServiceTracker;
 
 import javax.inject.Inject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.PrintStream;
@@ -90,11 +92,18 @@ public class FuseTestSupport {
                 editConfigurationFilePut("etc/org.ops4j.pax.web.cfg", "org.osgi.service.http.port", HTTP_PORT),
                 editConfigurationFilePut("etc/org.apache.karaf.management.cfg", "rmiRegistryPort", RMI_REG_PORT),
                 editConfigurationFilePut("etc/org.apache.karaf.management.cfg", "rmiServerPort", RMI_SERVER_PORT),
+                editConfigurationFilePut("etc/ch.unibe.id.cfg", "brokerUrl", "tcp://localhost:61616"),
                 editConfigurationFilePut("etc/users.properties", "admin", "admin,admin"),
-
+                replaceConfigurationFile("etc/org.apache.activemq.server-default.cfg", new File("/tmp/rider-auto-osgi/itests/src/test/resources/org.apache.activemq.server-default.cfg")),
+                replaceConfigurationFile("etc/activemq.xml", new File("/tmp/rider-auto-osgi/itests/src/test/resources/activemq.xml")),
                 // this is the key... we can install features, bundles, etc. using these pax-exam options
-                features(maven().groupId("org.jboss.fuse.examples").artifactId("rider-auto-common").versionAsInProject().classifier("features").type("xml"),
-                        "rider-auto-osgi"),
+                
+                
+//                features(maven().groupId("org.jboss.fuse.examples").artifactId("rider-auto-common").versionAsInProject().classifier("features").type("xml"),
+//                        "rider-auto-osgi"),
+
+                                features(maven().groupId("ch.unibe.id").artifactId("parispolyrightks").version("0.0.1-SNAPSHOT").classifier("features").type("xml"),
+                        "parispolyrightks"),
                 logLevel(LogLevelOption.LogLevel.INFO),
 
                 // enable this if you want to keep the exploded directories of fuse after the tests are run
@@ -227,4 +236,6 @@ public class FuseTestSupport {
     private static Collection<ServiceReference> asCollection(ServiceReference[] references) {
         return references != null ? Arrays.asList(references) : Collections.<ServiceReference>emptyList();
     }
+    
+    
 }
