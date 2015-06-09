@@ -18,11 +18,13 @@ package org.jboss.fuse.example.support;
 
 import org.apache.activemq.broker.BrokerFactory;
 import org.apache.activemq.broker.BrokerService;
+import org.apache.activemq.xbean.BrokerFactoryBean;
 import org.ops4j.pax.exam.TestContainer;
 import org.ops4j.pax.exam.TestProbeBuilder;
 import org.ops4j.pax.exam.spi.StagedExamReactor;
 import org.ops4j.pax.exam.spi.reactors.EagerSingleStagedReactor;
 import org.ops4j.pax.exam.spi.reactors.PerClass;
+import org.springframework.core.io.ClassPathResource;
 
 import java.net.URI;
 import java.util.List;
@@ -54,18 +56,18 @@ public class ActiveMQPerClass extends PerClass {
 
     protected void bootStrapActiveMQ() {
         try {
-            brokerService = BrokerFactory.createBroker(new URI("broker://()/localhost?useJmx=true&deleteAllMessagesOnStartup=true"));
+//            brokerService = BrokerFactory.createBroker(new URI("broker://()/localhost?useJmx=true&deleteAllMessagesOnStartup=true"));
 
             // you can also bootstrap the broker from an activemq config file like this:
 //            BrokerFactoryBean bean = new BrokerFactoryBean();
 //            bean.setConfig(new ClassPathResource("/activemq.xml"));
 //            bean.afterPropertiesSet();
 //            brokerService = bean.getBroker();
-
-
-            brokerService.setDataDirectory("target/activemq-data");
-            brokerService.start();
-            brokerService.waitUntilStarted();
+//
+//
+//            brokerService.setDataDirectory("target/activemq-data");
+//            brokerService.start();
+//            brokerService.waitUntilStarted();
 
         } catch (Exception e) {
             throw new IllegalStateException("Cannot bootstrap broker, failing test", e);

@@ -22,6 +22,12 @@
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
   http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
 
+    <!-- Allows us to use system properties and fabric as variables in this configuration file -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="properties">
+            <bean class="org.fusesource.mq.fabric.ConfigurationProperties"/>
+        </property>      
+    </bean>
 
     <broker xmlns="http://activemq.apache.org/schema/core"
             brokerName="${broker-name}"
@@ -50,9 +56,9 @@
             <kahaDB directory="${data}/kahadb"/>
         </persistenceAdapter>
 
-<plugins>
+        <plugins>
             <jaasAuthenticationPlugin configuration="karaf" />
-            <authorizationPlugin>
+             <authorizationPlugin>
               <map>
                 <authorizationMap groupClass="org.apache.karaf.jaas.boot.principal.RolePrincipal">
                   <authorizationEntries>
@@ -60,10 +66,15 @@
                     <authorizationEntry topic=">" read="admin" write="admin" admin="admin"/>
                     <authorizationEntry topic="ActiveMQ.Advisory.>" read="admin" write="admin" admin="admin"/>
                   </authorizationEntries>
+
+                  <tempDestinationAuthorizationEntry>
+                    <tempDestinationAuthorizationEntry read="admin" write="admin" admin="admin"/>
+                  </tempDestinationAuthorizationEntry>
                 </authorizationMap>
               </map>
             </authorizationPlugin>
         </plugins>
+
         <systemUsage>
             <systemUsage>
                 <memoryUsage>
@@ -79,8 +90,7 @@
         </systemUsage>
         
         <transportConnectors>
-            <transportConnector name="openwire" uri="tcp://0.0.0.0:0?maximumConnections=1000"/>
-            <transportConnector name="tcp" uri="tcp://localhost:61616?maximumConnections=1000" />
+            <transportConnector name="openwire" uri="tcp://localhost:61616?maximumConnections=1000"/>
         </transportConnectors>
     </broker>
 

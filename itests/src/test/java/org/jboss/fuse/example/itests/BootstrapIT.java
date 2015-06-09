@@ -46,7 +46,8 @@ public class BootstrapIT extends FuseTestSupport {
     protected CamelContext camelContext;
 
     @Test
-    public void testBootstrap() {
+    public void testBootstrap() throws InterruptedException {
+    	Thread.sleep(100000);
         assertNotNull(camelContext);
         ActiveMQComponent component = camelContext.getComponent("activemq", ActiveMQComponent.class);
         assertNotNull(component);
